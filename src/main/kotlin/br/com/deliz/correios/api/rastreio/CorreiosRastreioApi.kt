@@ -44,35 +44,25 @@ class CorreiosRastreioApi private constructor(
         private var idioma: CorreiosIdioma? = null
         private var escopoResultado: CorreiosEscopoResultado? = null
 
-        fun porCodigoDeRastreio(codigoDeRastreio: String): Builder {
+        fun addCodigoRastreio(codigoDeRastreio: String): Builder {
             this.codigosDeRastreio!!.add(codigoDeRastreio)
             return this
         }
 
-        fun porCodigoDeRastreio(codigoDeRastreioList: MutableList<String>): Builder {
+        fun addCodigosRastreio(codigoDeRastreioList: MutableList<String>): Builder {
             codigoDeRastreioList.forEach {
                 this.codigosDeRastreio?.add(it)
             }
             return this
         }
 
-        fun comRetornoEmPortugues(): Builder {
-            this.idioma = CorreiosIdioma.PORTUGUES
+        fun idiomaRetorno(idioma: CorreiosIdioma):Builder{
+            this.idioma = idioma
             return this
         }
 
-        fun comRetornoEmIngles(): Builder {
-            this.idioma = CorreiosIdioma.INGLES
-            return this
-        }
-
-        fun somenteUltimoEvento(): Builder {
-            this.escopoResultado = CorreiosEscopoResultado.ULTIMO_EVENTO
-            return this
-        }
-
-        fun todosOsEventos(): Builder {
-            this.escopoResultado = CorreiosEscopoResultado.TODOS_OS_EVENTOS
+        fun escopoResposta(escopoResultado: CorreiosEscopoResultado): Builder {
+            this.escopoResultado = escopoResultado
             return this
         }
 

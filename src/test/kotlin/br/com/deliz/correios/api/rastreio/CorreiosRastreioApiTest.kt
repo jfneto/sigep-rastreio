@@ -1,5 +1,7 @@
 package br.com.deliz.correios.api.rastreio
 
+import br.com.deliz.correios.api.rastreio.enums.CorreiosEscopoResultado
+import br.com.deliz.correios.api.rastreio.enums.CorreiosIdioma
 import br.com.deliz.correios.api.rastreio.model.DetalhesRastreio
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
@@ -15,9 +17,9 @@ internal class CorreiosRastreioApiTest {
     @Test
     fun executaConsultaNaApi(){
         val correiosRastreioApi = CorreiosRastreioApi.Builder()
-                .porCodigoDeRastreio("OD646821689BR")
-                .comRetornoEmPortugues()
-                .somenteUltimoEvento()
+                .addCodigoRastreio("OD646821689BR")
+                .idiomaRetorno(CorreiosIdioma.PORTUGUES)
+                .escopoResposta(CorreiosEscopoResultado.TODOS_OS_EVENTOS)
                 .build()
 
         val response: DetalhesRastreio? = correiosRastreioApi.consulta()
