@@ -10,7 +10,7 @@ import br.com.correios.webservice.rastreio.EventosDosCorreios
 import br.com.correios.webservice.rastreio.Service
 import br.com.deliz.correios.api.rastreio.model.DetalhesRastreio
 import br.com.deliz.correios.api.rastreio.model.ObjetoRastreio
-import br.com.deliz.correios.credentials.ConfiguracoesHelper
+import br.com.deliz.correios.helpers.ConfiguracoesHelper
 
 /**
  * Classe que encapsula a chamada SOAP para os correios atraves do WSDL dos Correios

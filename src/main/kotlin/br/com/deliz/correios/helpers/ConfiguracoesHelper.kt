@@ -1,4 +1,4 @@
-package br.com.deliz.correios.credentials
+package br.com.deliz.correios.helpers
 
 import java.util.*
 
