@@ -1,0 +1,64 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.61'
+    id 'java'
+}
+
+apply plugin: 'kotlin'
+
+compileJava.options.encoding = 'UTF-8'
+
+group = 'br.com.deliz.correios'
+archivesBaseName = 'sigep-rastreio'
+version '0.0.1-SNAPSHOT'
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    implementation 'com.github.jfneto:sigep-webservice:0.1.4'
+
+    //implementation "org.apache.commons:commons-lang3:3.4"
+    //implementation "com.google.guava:guava:19.0"
+    //implementation "javax.xml.bind:jaxb-api:2.3.1"
+    //implementation "org.eclipse.persistence:org.eclipse.persistence.moxy:2.6.4"
+
+    implementation group: 'javax.jws', name: 'javax.jws-api', version: '1.1'
+    implementation group: 'javax.xml.ws', name: 'jaxws-api', version: '2.3.1'
+    implementation 'com.sun.xml.ws:jaxws-rt:2.1.4'
+
+    //implementation 'org.slf4j:slf4j-log4j12:1.7.25'
+    //implementation 'log4j:log4j:1.2.17'
+
+    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
+
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+
+    testCompile("org.junit.platform:junit-platform-launcher:${junitJupiterPlatform}") //launcher to override bundled one
+    testRuntime("org.junit.platform:junit-platform-runner:${junitJupiterPlatform}")//same for runner
+
+    testCompile "org.mockito:mockito-core:3.2.4"
+    testCompile "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+test {
+    useJUnitPlatform()
+}
+
