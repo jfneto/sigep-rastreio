@@ -34,12 +34,7 @@ class CorreiosRastreioApi private constructor(
         }
     }
 
-    private fun todosOsCodigosEstaoPreenchidos(): Boolean {
-        val arrayDeCodigosDeRastreio = codigosDeRastreio!!.toTypedArray()
-        return arrayDeCodigosDeRastreio.isNotEmpty()
-    }
-
-    internal class Builder{
+    class Builder{
         private val codigosDeRastreio: MutableList<String>? = ArrayList()
         private var idioma: CorreiosIdioma? = null
         private var escopoResultado: CorreiosEscopoResultado? = null
